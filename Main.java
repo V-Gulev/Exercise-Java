@@ -2,68 +2,65 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static double calculateAverage(int[] grades) {
-        int sum = 0;
-        for (int grade : grades) {
-            sum += grade;
-        }
-        return (double) sum / grades.length;
-    }
-
-    public static int findHighestGrade(int[] grades) {
-        int highest = grades[0];
-        for (int grade : grades) {
-            if (grade > highest) {
-                highest = grade;
-            }
-        }
-        return highest;
-    }
-
-    public static int findLowestGrade(int[] grades) {
-        int lowest = grades[0];
-        for (int grade : grades) {
-            if (grade < lowest) {
-                lowest = grade;
-            }
-        }
-        return lowest;
-    }
-
-    public static void printBetterStudents(String[] names, int[] grades, double average) {
-        System.out.println("Students who scored above average:");
-        for (int i = 0; i < grades.length; i++) {
-            if (grades[i] > average) {
-                System.out.println(names[i] + " - " + grades[i]);
-            }
-        }
-    }
-
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Number of students: ");
-        int numberOfStudents = Integer.parseInt(scanner.nextLine());
-        String[] studentNames = new String[numberOfStudents];
-        int[] studentGrades = new int[numberOfStudents];
+        int sizeOfField = Integer.parseInt(scanner.nextLine());
+        int[] ladyBugArray = new int[sizeOfField];
 
-
-        for (int i = 0; i < numberOfStudents; i++) {
-            System.out.println("Enter name of student " + (i + 1) + ": ");
-            studentNames[i] = scanner.nextLine();
-            System.out.println("Enter grade of " + studentNames[i] + ": ");
-            studentGrades[i] = scanner.nextInt();
-            scanner.nextLine();
+        String[] ladyBugsPosition = scanner.nextLine().split(" ");
+        for (String pos : ladyBugsPosition) {
+            int index = Integer.parseInt(pos);
+            if (index >= 0 && index < sizeOfField) {
+                ladyBugArray[index] = 1;
+            }
         }
-        double average = calculateAverage(studentGrades);
-        int highestGrade = findHighestGrade(studentGrades);
-        int lowestGrade = findLowestGrade(studentGrades);
 
-        System.out.println("Class Results:");
-        System.out.println("Average grade: " + average);
-        System.out.println("Highest grade: " + highestGrade);
-        System.out.println("Lowest grade: " + lowestGrade);
+        while (true) {
+            String input = scanner.nextLine();
 
-        printBetterStudents(studentNames, studentGrades, average);
+            if (input.equals("end")) {
+
+                for (int i : ladyBugArray) {
+                    System.out.print(i + " ");
+                }
+                break;
+            } else {
+                String[] command = input.split(" ");
+                int ladyBugIndex = Integer.parseInt(command[0]);
+                String direction = command[1];
+                int flyLength = Integer.parseInt(command[2]);
+
+                if (flyLength < 0) {
+                    flyLength = Math.abs(flyLength);
+                    if (direction.equals("right")) {
+                        direction = "left";
+                    } else direction = "right";
+                }
+
+                if (ladyBugIndex < 0 || ladyBugIndex >= sizeOfField || ladyBugArray[ladyBugIndex] == 0) {
+                    continue;
+                }
+
+                ladyBugArray[ladyBugIndex] = 0;
+                while (true) {
+                    if (direction.equals("right")) {
+                        ladyBugIndex += flyLength;
+                    } else if (direction.equals("left")) {
+                        ladyBugIndex -= flyLength;
+                    }
+
+                    if (ladyBugIndex < 0 || ladyBugIndex >= sizeOfField) {
+                        break;
+                    }
+
+                    if (ladyBugArray[ladyBugIndex] == 0) {
+                        ladyBugArray[ladyBugIndex] = 1;
+                        break;
+                    }
+
+                }
+            }
+        }
     }
 }
