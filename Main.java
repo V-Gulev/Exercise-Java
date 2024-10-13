@@ -6,7 +6,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         System.out.print("Input a decimal number: ");
         int n = sc.nextInt();
-        String hexNum = Integer.toHexString(n).toUpperCase();
+        String hexNum = Integer.toOctalString(n).toUpperCase();
 
         System.out.println("Hexadecimal number is : " + hexNum);
     }
