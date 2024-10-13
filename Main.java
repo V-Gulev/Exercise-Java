@@ -10,9 +10,9 @@ public class Main {
         String binary2 = sc.nextLine();
         int number1 = Integer.parseInt(binary1, 2);
         int number2 = Integer.parseInt(binary2, 2);
-        int sum = number1 + number2;
+        int result = number1 * number2;
 
-        String binarySum = Integer.toBinaryString(sum);
+        String binarySum = Integer.toBinaryString(result);
 
         System.out.println("Sum of two binary numbers: " + binarySum);
     }
