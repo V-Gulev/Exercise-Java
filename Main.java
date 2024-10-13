@@ -7,7 +7,7 @@ public class Main {
         System.out.print("Input a binary number: ");
         String binaryNumber = sc.nextLine();
         int decimalNumber = Integer.parseInt(binaryNumber, 2);
-        
-        System.out.println("Decimal Number: " + decimalNumber);
+        String hexNumber = Integer.toHexString(decimalNumber).toUpperCase();
+        System.out.println("HexaDecimal value: " + hexNumber);
     }
 }
