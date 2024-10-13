@@ -4,16 +4,12 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        String a = "* * * * * * ==================================\n * * * * *  ==================================";
-        String b = "==============================================";
-
-        for (int i = 0; i < 4; i++) {
-            System.out.println(a);
-        }
-        System.out.println("* * * * * * ==================================");
-
-        for (int i = 0; i < 6; i++) {
-            System.out.println(b);
-        }
+        int a = scanner.nextInt();
+        int b = scanner.nextInt();
+        int temp = a;
+        System.out.println("a = " + a + " and b = " + b);
+        a = b;
+        b = temp;
+        System.out.println("a = " + a + " and b = " + b);
     }
 }
