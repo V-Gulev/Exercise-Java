@@ -4,10 +4,10 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Input a Decimal Number: ");
-        int decimalNumber = sc.nextInt();
-        String binaryNumber = Integer.toBinaryString(decimalNumber);
+        System.out.print("Input a decimal number: ");
+        int n = sc.nextInt();
+        String hexNum = Integer.toHexString(n).toUpperCase();
 
-        System.out.println("Binary number is: " + binaryNumber);
+        System.out.println("Hexadecimal number is : " + hexNum);
     }
 }
