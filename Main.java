@@ -4,10 +4,11 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Input a octal number: ");
-        String hexNumber = sc.nextLine();
-        int decimalNumber = Integer.parseInt(hexNumber, 16);
-        String octalNumber = Integer.toOctalString(decimalNumber);
-        System.out.println("Octal number: " + octalNumber);
+        System.out.println("Java Version: " + System.getProperty("java.version"));
+        System.out.println("Java Runtime Version: " + System.getProperty("java.runtime.version"));
+        System.out.println("Java Home: " + System.getProperty("java.home"));
+        System.out.println("Java Vendor: " + System.getProperty("java.vendor"));
+        System.out.println("Java Vendor URL: " + System.getProperty("java.vendor.url"));
+        System.out.println("Java Class Path: " + System.getProperty("java.class.path"));
     }
 }
