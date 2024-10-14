@@ -7,7 +7,7 @@ public class Main {
         System.out.print("Input a octal number: ");
         String hexNumber = sc.nextLine();
         int decimalNumber = Integer.parseInt(hexNumber, 16);
-
-        System.out.println("Decimal number: " + decimalNumber);
+        String binaryNumber = Integer.toBinaryString(decimalNumber);
+        System.out.println("Binary number: " + binaryNumber);
     }
 }
