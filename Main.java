@@ -5,26 +5,18 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Input a string: ");
-        String input = sc.nextLine();
-        char[] array = input.toCharArray();
-        int numCounter = 0;
-        int letterCounter = 0;
-        int spaceCounter = 0;
-        int otherCounter = 0;
-        for (int i = 0; i < array.length; i++) {
-            if (Character.isAlphabetic(array[i])) {
-                letterCounter++;
-            } else if (Character.isDigit(array[i])) {
-                numCounter++;
-            } else if (Character.isSpaceChar(array[i])) {
-                spaceCounter++;
-            } else otherCounter++;
+        int counter = 0;
+
+        for (int i = 1; i <= 4; i++) {
+            for (int j = 1; j <= 4; j++) {
+                for (int k = 1; k <= 4; k++) {
+                    if (i != k && i != j && j != k) {
+                        counter++;
+                        System.out.println(i + "" + j + k);
+                    }
+                }
+            }
         }
-        System.out.println("The string is: " + input);
-        System.out.println("letter: " + letterCounter);
-        System.out.println("space: " + spaceCounter);
-        System.out.println("number: " + numCounter);
-        System.out.println("other: " + otherCounter);
+        System.out.println("Total number of the three-digit-number is: " + counter);
     }
 }
