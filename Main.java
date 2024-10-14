@@ -1,10 +1,24 @@
+import java.io.Console;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        char ch = sc.nextLine().charAt(0);
-        System.out.println((int) ch);
+        Console cons;
+
+        if ((cons = System.console()) != null) {
+            char[] password = null;
+            try {
+                password = cons.readPassword("Input your Password:");
+                System.out.println("Your password was: " + new String(password));
+            } finally {
+                if (password != null) {
+                    java.util.Arrays.fill(password, ' ');
+                }
+            }
+        } else {
+            throw new RuntimeException("Can't get the password... No console");
+        }
     }
 }
