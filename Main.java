@@ -7,6 +7,6 @@ public class Main {
         System.out.print("Input a octal number: ");
         String octalNumber = sc.nextLine();
         int decimalNumber = Integer.parseInt(octalNumber, 8);
-        System.out.println("Octal number: " + decimalNumber);
+        System.out.println("Decimal number: " + decimalNumber);
     }
 }
