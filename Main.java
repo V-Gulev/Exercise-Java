@@ -4,16 +4,10 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Insert your first number: ");
-        int a = sc.nextInt();
-        int sumOfDigits = 0;
-
-        while (a > 0) {
-            int lastDigit = a % 10;
-            sumOfDigits += lastDigit;
-            a /= 10;
-        }
-        System.out.println("The sum of the digits is: " + sumOfDigits);
+        System.out.print("Input the length of a side  of the hexagon: ");
+        int s = sc.nextInt();
+        double area = (6 * Math.pow(s, 2)) / (4 * Math.tan(Math.PI / 6));
+        System.out.println("The area of the hexagon is: " + area);
 
 
     }
