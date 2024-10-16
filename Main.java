@@ -4,13 +4,13 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Input a word: ");
-        String word = sc.nextLine();
-        char[] ch = word.toCharArray();
+        System.out.print("Input the first number: ");
+        int num1 = sc.nextInt();
+        System.out.print("Input the second number: ");
+        int num2 = sc.nextInt();
+        System.out.print("Input the third number: ");
+        int num3 = sc.nextInt();
 
-        for (int i = ch.length - 1; i >= 0; i--) {
-            System.out.print(ch[i]);
-        }
-
+        System.out.println((Math.abs(num1 - num2) >= 20 || Math.abs(num2 - num3) >= 20 || Math.abs(num3 - num1) >= 20));
     }
 }
