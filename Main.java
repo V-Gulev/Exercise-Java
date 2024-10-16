@@ -1,9 +1,10 @@
+import java.io.File;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n = Integer.parseInt(sc.nextLine());
-        System.out.printf("%d + %d%d + %d%d%d", n, n, n, n, n, n);
+        System.out.println("/user/Developer/Java-Exercise : " + new File("exercise.txt").length() + " bytes");
+        System.out.println("/user/Developer/Java-Exercise : " + new File("exam.txt").length() + " bytes");
     }
 }
