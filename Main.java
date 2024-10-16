@@ -8,15 +8,8 @@ public class Main {
         int num1 = sc.nextInt();
         System.out.print("Input the second number: ");
         int num2 = sc.nextInt();
-        boolean checkIfTrue = false;
-        while (num1 > 0 && num2 > 0) {
-            if (num1 % 10 == num2 % 10) {
-                checkIfTrue = true;
-                break;
-            }
-            num1 /= 10;
-            num2 /= 10;
-        }
-        System.out.println(checkIfTrue);
+        int divided = num1 / num2;
+        int result = num1 - (divided * num2);
+        System.out.println(result);
     }
 }
