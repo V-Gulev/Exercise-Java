@@ -8,9 +8,11 @@ public class Main {
         int num1 = sc.nextInt();
         System.out.print("Input the second number: ");
         int num2 = sc.nextInt();
-        System.out.print("Input the third number: ");
-        int num3 = sc.nextInt();
 
-        System.out.println((Math.abs(num1 - num2) >= 20 || Math.abs(num2 - num3) >= 20 || Math.abs(num3 - num1) >= 20));
+        if (num1 == num2) {
+            System.out.println(0);
+        } else if (num1 % 6 == num2 % 6) {
+            System.out.println(Math.min(num2, num1));
+        } else System.out.println(Math.max(num1, num2));
     }
 }
