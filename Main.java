@@ -7,10 +7,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String input = sc.nextLine();
-        String wordToMultiply = input.substring(input.length() - 3);
-        for (int i = 0; i < 4; i++) {
-            System.out.print(wordToMultiply);
-        }
-
+        String substring = input.substring(0, input.length() / 2);
+        System.out.println(substring);
     }
 }
