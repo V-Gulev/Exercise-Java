@@ -8,16 +8,8 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         String word1 = sc.nextLine();
         String word2 = sc.nextLine();
-        String shortString = "";
-        String longString = "";
-        if (word1.length() > word2.length()) {
-            shortString = word2;
-            longString = word1;
-        } else {
-            shortString = word1;
-            longString = word2;
-        }
-        System.out.println(shortString + longString + shortString);
-
+        String str1 = word1.substring(1);
+        String str2 = word2.substring(1);
+        System.out.println(str1 + str2);
     }
 }
