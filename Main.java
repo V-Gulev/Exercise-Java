@@ -6,11 +6,11 @@ import java.util.stream.Collectors;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        List<String> input = Arrays.stream(sc.nextLine().split(" ")).collect(Collectors.toList());
-        String wordToAdd = sc.nextLine();
-        int index = input.size() / 2;
-        input.add(index, wordToAdd);
-        System.out.println(input.toString().replaceAll("[\\[\\],]", ""));
-    }
+        String input = sc.nextLine();
+        String wordToMultiply = input.substring(input.length() - 3);
+        for (int i = 0; i < 4; i++) {
+            System.out.print(wordToMultiply);
+        }
 
+    }
 }
