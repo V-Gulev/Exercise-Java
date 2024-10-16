@@ -6,8 +6,18 @@ import java.util.stream.Collectors;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String input = sc.nextLine();
-        String substring = input.substring(0, input.length() / 2);
-        System.out.println(substring);
+        String word1 = sc.nextLine();
+        String word2 = sc.nextLine();
+        String shortString = "";
+        String longString = "";
+        if (word1.length() > word2.length()) {
+            shortString = word2;
+            longString = word1;
+        } else {
+            shortString = word1;
+            longString = word2;
+        }
+        System.out.println(shortString + longString + shortString);
+
     }
 }
