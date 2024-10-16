@@ -8,11 +8,15 @@ public class Main {
         int num1 = sc.nextInt();
         System.out.print("Input the second number: ");
         int num2 = sc.nextInt();
-
-        if (num1 == num2) {
-            System.out.println(0);
-        } else if (num1 % 6 == num2 % 6) {
-            System.out.println(Math.min(num2, num1));
-        } else System.out.println(Math.max(num1, num2));
+        boolean checkIfTrue = false;
+        while (num1 > 0 && num2 > 0) {
+            if (num1 % 10 == num2 % 10) {
+                checkIfTrue = true;
+                break;
+            }
+            num1 /= 10;
+            num2 /= 10;
+        }
+        System.out.println(checkIfTrue);
     }
 }
