@@ -11,9 +11,9 @@ public class Main {
         int index = 0;
         for (String word : words) {
             if (Character.isAlphabetic(word.charAt(0))) {
-                capitalWord = Character.toUpperCase(word.charAt(0)) + word.substring(1);
+                capitalWord = word.toLowerCase();
             } else capitalWord = word;
-            result = result + capitalWord + " ";
+            result += capitalWord + " ";
         }
         System.out.println(result.trim());
     }
