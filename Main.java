@@ -4,9 +4,14 @@ import java.util.stream.Collectors;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String input = sc.nextLine();
-        String[] words = input.split(" ");
-        System.out.println(words[0].equals("Hello"));
-
+        int n = sc.nextInt();
+        while (n != 1) {
+            if (n % 2 == 0) {
+                n /= 2;
+            } else {
+                n = n * 3 + 1;
+            }
+        }
+        System.out.println(n);
     }
 }
