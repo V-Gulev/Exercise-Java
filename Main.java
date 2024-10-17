@@ -5,26 +5,15 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         List<Integer> numbers = Arrays.stream(sc.nextLine().split(" ")).map(Integer::parseInt).collect(Collectors.toList());
-        boolean checkFor10 = false;
-        boolean checkFor20 = false;
-        if (numbers.contains(10)) {
-            for (int i = 0; i < numbers.size() - 1; i++) {
-                if (numbers.get(i) == 10 && numbers.get(i + 1) == 10) {
-                    checkFor10 = true;
-                }
-            }
+        List<Integer> oddNumbers = new ArrayList<>();
+        List<Integer> evenNumbers = new ArrayList<>();
+        for (Integer number : numbers) {
+            if (number % 2 == 0) {
+                evenNumbers.add(number);
+            } else oddNumbers.add(number);
         }
-        if (numbers.contains(20)) {
-            for (int i = 0; i < numbers.size() - 1; i++) {
-                if (numbers.get(i) == 20 && numbers.get(i + 1) == 20) {
-                    checkFor20 = true;
-                }
-            }
-        }
-        if (checkFor10 && !checkFor20) {
-            System.out.println("Found 10");
-        } else if (!checkFor10 && checkFor20) {
-            System.out.println("Found 20");
-        } else System.out.println("Nothing found");
+        oddNumbers.addAll(evenNumbers);
+        System.out.println(oddNumbers);
+
     }
 }
