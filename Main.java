@@ -1,15 +1,20 @@
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        long startTime = System.nanoTime();
-        int i;
-        System.out.println("The first 10 numbers are:");
-        for (i = 1; i <= 10; i++) {
-            System.out.println(i);
+        List<Integer> numbers = Arrays.stream(sc.nextLine().split(" ")).map(Integer::parseInt).collect(Collectors.toList());
+        int evenCount = 0;
+        int oddCount = 0;
+        for (int num : numbers) {
+            if (num % 2 == 0) {
+                evenCount++;
+            } else {
+                oddCount++;
+            }
         }
-        long estimatedTime = System.nanoTime() - startTime;
-        System.out.println("Estimated time in nanoseconds to get the first 10 natural numbers: " + estimatedTime);
+        System.out.println("Even numbers: " + evenCount);
+        System.out.println("Odd numbers: " + oddCount);
     }
 }
