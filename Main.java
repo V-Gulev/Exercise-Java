@@ -4,16 +4,11 @@ import java.util.stream.Collectors;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        List<Integer> numbers = Arrays.stream(sc.nextLine().split(" ")).map(Integer::parseInt).collect(Collectors.toList());
-        List<Integer> oddNumbers = new ArrayList<>();
-        List<Integer> evenNumbers = new ArrayList<>();
-        for (Integer number : numbers) {
-            if (number % 2 == 0) {
-                evenNumbers.add(number);
-            } else oddNumbers.add(number);
+        int n = Integer.parseInt(sc.nextLine());
+        String[] array = new String[n];
+        for (int i = 0; i < n; i++) {
+            array[i] = String.valueOf(i);
         }
-        oddNumbers.addAll(evenNumbers);
-        System.out.println(oddNumbers);
-
+        System.out.println(Arrays.toString(array));
     }
 }
