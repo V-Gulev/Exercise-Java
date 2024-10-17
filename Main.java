@@ -5,16 +5,26 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         List<Integer> numbers = Arrays.stream(sc.nextLine().split(" ")).map(Integer::parseInt).collect(Collectors.toList());
-        int evenCount = 0;
-        int oddCount = 0;
-        for (int num : numbers) {
-            if (num % 2 == 0) {
-                evenCount++;
-            } else {
-                oddCount++;
+        boolean checkFor10 = false;
+        boolean checkFor20 = false;
+        if (numbers.contains(10)) {
+            for (int i = 0; i < numbers.size() - 1; i++) {
+                if (numbers.get(i) == 10 && numbers.get(i + 1) == 10) {
+                    checkFor10 = true;
+                }
             }
         }
-        System.out.println("Even numbers: " + evenCount);
-        System.out.println("Odd numbers: " + oddCount);
+        if (numbers.contains(20)) {
+            for (int i = 0; i < numbers.size() - 1; i++) {
+                if (numbers.get(i) == 20 && numbers.get(i + 1) == 20) {
+                    checkFor20 = true;
+                }
+            }
+        }
+        if (checkFor10 && !checkFor20) {
+            System.out.println("Found 10");
+        } else if (!checkFor10 && checkFor20) {
+            System.out.println("Found 20");
+        } else System.out.println("Nothing found");
     }
 }
