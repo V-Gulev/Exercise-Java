@@ -1,38 +1,37 @@
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        List<Integer> targets = Arrays.stream(sc.nextLine().split(" ")).map(Integer::parseInt).collect(Collectors.toList());
-        int timesShot = 0;
-        String command = sc.nextLine();
-        while (!command.equals("End")) {
-            int index = Integer.parseInt(command);
-            int currentValue = 0;
-            if (index >= 0 && index < targets.size() && targets.get(index) != -1) {
-                currentValue = targets.get(index);
-                timesShot++;
-                targets.set(index, -1);
-
-                for (int i = 0; i < targets.size(); i++) {
-                    if (targets.get(i) > currentValue && targets.get(i) != -1) {
-                        targets.set(i, targets.get(i) - currentValue);
-                    } else if (targets.get(i) <= currentValue && targets.get(i) != -1) {
-                        targets.set(i, targets.get(i) + currentValue);
-                    }
-
-                }
-
-
-            }
-            command = sc.nextLine();
+        List<Integer> numbers = Arrays.stream(sc.nextLine().split(" ")).map(Integer::parseInt).collect(Collectors.toList());
+        double average = 0;
+        int sum = 0;
+        for (int num : numbers) {
+            sum += num;
         }
-        System.out.printf("Shot targets: %d -> ", timesShot);
-        for (Integer target : targets) {
-            System.out.print(target + " ");
+        average = (double) sum / numbers.size();
+        List<Integer> biggerThanAverage = new ArrayList<>();
+        for (int num : numbers) {
+            if (num > average) {
+                biggerThanAverage.add(num);
+            }
+        }
+        biggerThanAverage.sort(Comparator.reverseOrder());
+
+        if (biggerThanAverage.size() > 5) {
+            int intsToRemove = biggerThanAverage.size() - 5;
+            for (int i = 0; i < intsToRemove; i++) {
+                biggerThanAverage.removeLast();
+            }
+        }
+
+        if (biggerThanAverage.isEmpty()) {
+            System.out.println("No");
+        } else {
+            for (int num : biggerThanAverage) {
+                System.out.print(num + " ");
+            }
         }
     }
 }
