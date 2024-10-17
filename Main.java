@@ -6,7 +6,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         List<Integer> nums = Arrays.stream(sc.nextLine().split(" ")).map(Integer::parseInt).collect(Collectors.toList());
 
-        System.out.println(nums.getFirst() == 10 || nums.getLast() == 10);
+        System.out.println(nums.getFirst().equals(nums.getLast()));
 
     }
 }
