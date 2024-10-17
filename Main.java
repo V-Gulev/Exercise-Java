@@ -1,16 +1,30 @@
-import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String word1 = sc.nextLine();
-        String word2 = sc.nextLine();
-        String str1 = "";
-        str1 += (!word1.isEmpty()) ? word1.charAt(0) : "#";
-        str1 += (!word2.isEmpty()) ? word2.charAt(word2.length() - 1) : "#";
-        System.out.println(str1);
+        int days = Integer.parseInt(sc.nextLine());
+        int dailyPlunder = Integer.parseInt(sc.nextLine());
+        double expectedPlunder = Double.parseDouble(sc.nextLine());
+        double totalPlunder = 0;
+
+        for (int i = 1; i <= days; i++) {
+            totalPlunder += dailyPlunder;
+
+            if (i % 3 == 0) {
+                totalPlunder += (double) dailyPlunder / 2;
+            }
+            if (i % 5 == 0) {
+                totalPlunder = totalPlunder * 0.7;
+            }
+
+        }
+        if (totalPlunder >= expectedPlunder) {
+            System.out.printf("Ahoy! %.2f plunder gained.", totalPlunder);
+        } else {
+            double percent = totalPlunder / expectedPlunder * 100;
+            System.out.printf("Collected only %.2f%% of the plunder.", percent);
+        }
+
     }
 }
