@@ -9,7 +9,7 @@ public class Main {
 
         if (list1.contains(10)) {
             int index = list1.lastIndexOf(10);
-            for (int i = index + 1; i < list1.size(); i++) {
+            for (int i = 0; i < index; i++) {
                 result.add(list1.get(i));
             }
         }
