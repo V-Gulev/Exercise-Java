@@ -4,13 +4,12 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int number = Integer.parseInt(sc.nextLine());
-        int row = 1;
-        int usedCoins = 0;
-        while (usedCoins + row <= number) {
-            usedCoins += row;
-            row++;
+        int startingNumber = number;
+        while (number % 4 == 0) {
+            number /= 4;
         }
-        System.out.println("Rows: " + (row - 1));
-
+        if (number == 1) {
+            System.out.println(startingNumber + " is a power of 4");
+        } else System.out.println(startingNumber + " is not a power of 4");
     }
 }
