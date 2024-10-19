@@ -7,7 +7,7 @@ public class Main {
         String string = sc.nextLine();
         String target = sc.nextLine();
         if (string.contains(target)) {
-            System.out.println(string.indexOf(target) + target.length() - 1);
+            System.out.println(string.lastIndexOf(target) + target.length() - 1);
         }
     }
 }
