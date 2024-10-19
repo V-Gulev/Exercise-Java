@@ -1,17 +1,15 @@
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Input number: ");
-        int num = sc.nextInt();
-        int trailingZeros = 0;
-
-        while (num > 0) {
-            trailingZeros = trailingZeros + num / 5;
-            num /= 5;
-        }
-
-        System.out.println("Number of trailing zeros: " + trailingZeros);
+        List<Integer> list1 = Arrays.stream(sc.nextLine().split(" ")).map(Integer::parseInt).collect(Collectors.toList());
+        List<Integer> list2 = Arrays.stream(sc.nextLine().split(" ")).map(Integer::parseInt).collect(Collectors.toList());
+        List<Integer> result = new ArrayList<>();
+        result.addAll(list1);
+        result.addAll(list2);
+        result.sort(Comparator.naturalOrder());
+        System.out.println(result);
     }
 }
