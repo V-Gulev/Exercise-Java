@@ -1,28 +1,52 @@
-import java.util.*;
-import java.util.stream.Collectors;
+class LinkedList {
 
-public class Main {
+    static Node head;
+
+    static class Node {
+        int data;
+        Node next_node;
+
+        Node(int d) {
+            data = d;
+            next_node = null;
+        }
+    }
+
+    Node reverse(Node node) {
+        Node previousNode = null;
+        Node currentNode = node;
+        Node nextNode = null;
+        while (currentNode != null) {
+            nextNode = currentNode.next_node;
+            currentNode.next_node = previousNode;
+            previousNode = currentNode;
+            currentNode = nextNode;
+        }
+        node = previousNode;
+        return node;
+    }
+
+    void printList(Node node) {
+        while (node != null) {
+            System.out.print(node.data + " ");
+            node = node.next_node;
+        }
+    }
+
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int[][] matrix = new int[3][3];
-        System.out.println("Enter the values:");
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                matrix[i][j] = sc.nextInt();
-            }
-        }
-        System.out.print("Enter what you search for: ");
-        int target = sc.nextInt();
-        boolean found = false;
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                if (matrix[i][j] == target) {
-                    found = true;
-                    break;
-                }
-            }
-            if (found) break;
-        }
-        System.out.println(found);
+        LinkedList list = new LinkedList();
+        list.head = new Node(20);
+        list.head.next_node = new Node(40);
+        list.head.next_node.next_node = new Node(60);
+        list.head.next_node.next_node.next_node = new Node(80);
+
+        System.out.println("Original Linked list:");
+        list.printList(head);
+
+        head = list.reverse(head);
+
+        System.out.println("");
+        System.out.println("Reversed Linked list:");
+        list.printList(head);
     }
 }
