@@ -1,15 +1,19 @@
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        List<Integer> list1 = Arrays.stream(sc.nextLine().split(" ")).map(Integer::parseInt).collect(Collectors.toList());
-        List<Integer> list2 = Arrays.stream(sc.nextLine().split(" ")).map(Integer::parseInt).collect(Collectors.toList());
-        List<Integer> result = new ArrayList<>();
-        result.addAll(list1);
-        result.addAll(list2);
-        result.sort(Comparator.naturalOrder());
-        System.out.println(result);
+        String input = sc.nextLine();
+        int offset = sc.nextInt();
+        int length = input.length();
+        offset = offset % length;
+        String rotated = "";
+        for (int i = length - offset; i < length; i++) {
+            rotated += input.charAt(i);
+        }
+        for (int i = 0; i < length - offset; i++) {
+            rotated += input.charAt(i);
+        }
+        System.out.println("Rotated string: " + rotated);
     }
 }
