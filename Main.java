@@ -9,7 +9,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         List<Integer> numbers = Arrays.stream(sc.nextLine().split(" ")).map(Integer::parseInt).collect(Collectors.toList());
         int amount = sc.nextInt();
-        numbers.sort(Comparator.reverseOrder());
+        numbers.sort(Comparator.naturalOrder());
         for (int i = 0; i < amount; i++) {
             System.out.print(numbers.get(i) + " ");
         }
