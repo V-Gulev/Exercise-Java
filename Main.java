@@ -7,12 +7,13 @@ import java.util.stream.Collectors;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int number = Integer.parseInt(sc.nextLine());
-        int multiply = Integer.parseInt(sc.nextLine());
-        int multiplier = number;
-        for (int i = 0; i < multiply - 1; i++) {
-            number += multiplier;
+        String input = sc.nextLine();
+        String reversed = "";
+        String[] elements = input.split(" ");
+
+        for (int i = elements.length - 1; i >= 0 ; i--) {
+            reversed += elements[i] + " ";
         }
-        System.out.println(number);
+        System.out.println(reversed);
     }
 }
