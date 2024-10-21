@@ -7,15 +7,8 @@ import java.util.stream.Collectors;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int number = Integer.parseInt(sc.nextLine());
-        int divider = Integer.parseInt(sc.nextLine());
-        int result = 0;
-        int remainder = number;
-        while (remainder >= divider) {
-            remainder -= divider;
-            result++;
-        }
-        System.out.println(result);
-        System.out.println("Remainder: " + remainder);
+        List<Integer> numbers = Arrays.stream(sc.nextLine().split(" ")).map(Integer::parseInt).collect(Collectors.toList());
+        numbers.sort(Comparator.naturalOrder());
+        System.out.println(numbers.toString().replaceAll("[\\[\\],]", ""));
     }
 }
