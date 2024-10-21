@@ -7,8 +7,8 @@ import java.util.stream.Collectors;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        List<Integer> numbers = Arrays.stream(sc.nextLine().split(" ")).map(Integer::parseInt).collect(Collectors.toList());
-        numbers.sort(Comparator.naturalOrder());
-        System.out.println(numbers.toString().replaceAll("[\\[\\],]", ""));
+        int number = sc.nextInt();
+        String numberString = Integer.toString(number);
+        System.out.println("String format of the said integer: " + numberString);
     }
 }
