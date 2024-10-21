@@ -7,18 +7,12 @@ import java.util.stream.Collectors;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        List<Integer> numbers = Arrays.stream(sc.nextLine().split(" ")).map(Integer::parseInt).collect(Collectors.toList());
-        int count0 = 0;
-        for (int num : numbers) {
-            if (num == 0) {
-                count0++;
-
-            }
+        int number = Integer.parseInt(sc.nextLine());
+        int multiply = Integer.parseInt(sc.nextLine());
+        int multiplier = number;
+        for (int i = 0; i < multiply - 1; i++) {
+            number += multiplier;
         }
-        for (int i = 0; i < count0; i++) {
-            numbers.remove((Integer) 0);
-            numbers.add(0);
-        }
-        System.out.println(numbers.toString().replaceAll("[\\[\\],]", ""));
+        System.out.println(number);
     }
 }
