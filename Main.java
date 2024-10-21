@@ -7,19 +7,14 @@ import java.util.stream.Collectors;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        List<Integer> numbers = Arrays.stream(sc.nextLine().split(" ")).map(Integer::parseInt).collect(Collectors.toList());
-
-        int totalSum = 0;
-        double average = 0;
-        for (int num : numbers) {
-            totalSum += num;
-        }
-        average = (double) totalSum / numbers.size();
-        System.out.println(average);
-        for (int num : numbers) {
-            if (num > average) {
-                System.out.println(num);
+        int number = Integer.parseInt(sc.nextLine());
+        String binaryNumber = Integer.toBinaryString(number);
+        int count0 = 0;
+        for (char ch : binaryNumber.toCharArray()) {
+            if (ch == 48) {
+                count0++;
             }
         }
+        System.out.println(count0);
     }
 }
