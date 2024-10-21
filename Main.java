@@ -7,13 +7,29 @@ import java.util.stream.Collectors;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String input = sc.nextLine();
-        String reversed = "";
-        String[] elements = input.split(" ");
+        List<Integer> number = Arrays.stream(sc.nextLine().split(" ")).map(Integer::parseInt).collect(Collectors.toList());
+        boolean flag = false;
+        int result = 0;
+        int start = 0, end = 0;
 
-        for (int i = elements.length - 1; i >= 0 ; i--) {
-            reversed += elements[i] + " ";
+        for (int i = 1; i < number.size(); i++) {
+
+            if (number.get(i - 1) < number.get(i)) {
+                end = i;
+            } else {
+                start = i;
+            }
+
+            if (end - start > result) {
+                flag = true;
+                result = end - start;
+            }
         }
-        System.out.println(reversed);
+
+        if (flag) {
+            System.out.println(result + 1);
+        } else {
+            System.out.println(result);
+        }
     }
 }
