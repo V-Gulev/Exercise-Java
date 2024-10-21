@@ -10,8 +10,8 @@ public class Main {
         List<Integer> numbers = Arrays.stream(sc.nextLine().split(" ")).map(Integer::parseInt).collect(Collectors.toList());
         int amount = sc.nextInt();
         numbers.sort(Comparator.naturalOrder());
-        for (int i = 0; i < amount; i++) {
-            System.out.print(numbers.get(i) + " ");
-        }
+        System.out.println(numbers.get(amount - 1));
+        numbers.sort(Comparator.reverseOrder());
+        System.out.println(numbers.get(amount - 1));
     }
 }
