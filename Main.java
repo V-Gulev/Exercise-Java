@@ -8,10 +8,18 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         List<Integer> numbers = Arrays.stream(sc.nextLine().split(" ")).map(Integer::parseInt).collect(Collectors.toList());
-        int amount = sc.nextInt();
-        numbers.sort(Comparator.naturalOrder());
-        System.out.println(numbers.get(amount - 1));
-        numbers.sort(Comparator.reverseOrder());
-        System.out.println(numbers.get(amount - 1));
+
+        int totalSum = 0;
+        double average = 0;
+        for (int num : numbers) {
+            totalSum += num;
+        }
+        average = (double) totalSum / numbers.size();
+        System.out.println(average);
+        for (int num : numbers) {
+            if (num > average) {
+                System.out.println(num);
+            }
+        }
     }
 }
