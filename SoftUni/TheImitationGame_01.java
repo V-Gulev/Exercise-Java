@@ -1,3 +1,5 @@
+package SoftUni;
+
 import java.util.Scanner;
 
 public class TheImitationGame_01 {
