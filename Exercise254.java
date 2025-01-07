@@ -8,7 +8,7 @@ public class Exercise254 {
                 .replaceAll("!", " ").replaceAll("\\?", " ")
                 .split("\\s+");
 
-        System.out.println("The amount of words on the text is: " + getWordsAmount(text));
+        System.out.println("The amount of words in the text is: " + getWordsAmount(text));
 
 
     }
