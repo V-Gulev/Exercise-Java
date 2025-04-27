@@ -4,9 +4,9 @@ import java.util.Scanner;
 
 public class Exercise270 {
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         System.out.print("Input an integer(positive/negative):");
-        int n = in.nextInt();
+        int n = sc.nextInt();
         System.out.print("\nFactors of 3 of the said integer:\n");
         test(n);
     }
